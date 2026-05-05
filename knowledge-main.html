@@ -38,21 +38,17 @@
       text-align: center;
     }
 
+    /* SAME SIZE AS BODY TEXT NOW */
     .intro {
-      font-size: 12px;
-      opacity: 0.7;
       margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.5s;
     }
 
     h1 {
       letter-spacing: 4px;
       margin-bottom: 20px;
-    }
-
-    .closing {
-      margin-top: 20px;
-      font-size: 13px;
-      opacity: 0.85;
     }
 
     p {
@@ -61,9 +57,23 @@
       margin-top: 20px;
     }
 
-    p:nth-child(3) { animation-delay: 1s; }
+    p:nth-child(3) { animation-delay: 1.5s; }
     p:nth-child(4) { animation-delay: 3s; }
-    p:nth-child(5) { animation-delay: 5s; }
+    p:nth-child(5) { animation-delay: 4.5s; }
+
+    /* NEW: closing lines fade in */
+    .closing {
+      margin-top: 20px;
+    }
+
+    .closing div {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      margin-top: 6px;
+    }
+
+    .closing div:nth-child(1) { animation-delay: 6s; }
+    .closing div:nth-child(2) { animation-delay: 7.5s; }
 
     .consent {
       margin-top: 30px;
@@ -83,7 +93,7 @@
       border-radius: 4px;
       color: white;
       text-decoration: none;
-      opacity: 0.3; /* disabled look */
+      opacity: 0.3;
       pointer-events: none;
     }
 
@@ -118,8 +128,8 @@
       <p>You carry what you learn.</p>
 
       <div class="closing">
-        These links awaken you.<br>
-        They can not be undone.
+        <div>These links awaken you.</div>
+        <div>They can not be undone.</div>
       </div>
 
       <div class="consent">

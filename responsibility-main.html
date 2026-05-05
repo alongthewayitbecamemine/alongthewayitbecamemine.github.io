@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESPONSIBILITY</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      height: 100vh;
+      background: #4A3A5A;
+      color: white;
+
+      background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+
+    .frame {
+      position: fixed;
+      inset: 12px;
+      border: 2px solid white;
+      box-sizing: border-box;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      opacity: 0;
+      transform: scale(0.98);
+      animation: frameFade 1.2s ease forwards;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+    }
+
+    .intro {
+      margin-bottom: 10px;
+      opacity: 1;
+    }
+
+    h1 {
+      letter-spacing: 4px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      margin-top: 20px;
+    }
+
+    p:nth-child(3) { animation-delay: 1.5s; }
+    p:nth-child(4) { animation-delay: 3s; }
+    p:nth-child(5) { animation-delay: 4.5s; }
+
+    .closing {
+      margin-top: 20px;
+    }
+
+    .closing div {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      margin-top: 6px;
+    }
+
+    .closing div:nth-child(1) { animation-delay: 6s; }
+    .closing div:nth-child(2) { animation-delay: 7.5s; }
+
+    .consent {
+      margin-top: 30px;
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      border: 1px solid white;
+      padding: 10px 20px;
+      border-radius: 4px;
+      color: white;
+      text-decoration: none;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    a.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes frameFade {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="frame">
+    <div class="container">
+
+      <div class="intro">You have scanned the burden of</div>
+
+      <h1>RESPONSIBILITY</h1>
+
+      <p>What you carry shapes others.</p>
+      <p>What you ignore still exists.</p>
+      <p>What you choose has weight.</p>
+
+      <div class="closing">
+        <div>What you take on becomes who you are.</div>
+        <div>What you are is the mantle you choose.</div>
+      </div>
+
+      <div class="consent">
+        <label>
+          <input type="checkbox" id="consentBox">
+          I understand and accept
+        </label>
+      </div>
+
+      <a id="continueBtn" href="feed.html?b=responsibility&s=0&m=early">continue</a>
+
+    </div>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById("consentBox");
+    const button = document.getElementById("continueBtn");
+
+    checkbox.addEventListener("change", function() {
+      if (this.checked) {
+        button.classList.add("active");
+      } else {
+        button.classList.remove("active");
+      }
+    });
+  </script>
+</body>
+</html>

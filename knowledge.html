@@ -14,13 +14,31 @@
     align-items: center;
     height: 100vh;
     text-align: center;
+
+    /* Color */
     background: #4A6FA5;
     color: white;
+
+    /* 1 — white frame */
+    border: 2px solid white;
+    box-sizing: border-box;
+
+    /* 10 — subtle texture */
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
   }
 
   .container {
     width: 90%;
-    max-width: 420px;
+
+    /* 8 — tighter app-like width */
+    max-width: 320px;
+  }
+
+  h1 {
+    /* 5 — title spacing */
+    letter-spacing: 4px;
+    margin-bottom: 20px;
   }
 
   p {
@@ -36,10 +54,15 @@
   a {
     display: inline-block;
     margin-top: 40px;
-    color: inherit;
+
+    /* 9 — button style */
+    border: 1px solid white;
+    padding: 10px 20px;
+    border-radius: 4px;
+
+    color: white;
     text-decoration: none;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 4px;
+
     opacity: 0;
     animation: fadeIn 2s forwards;
     animation-delay: 7s;

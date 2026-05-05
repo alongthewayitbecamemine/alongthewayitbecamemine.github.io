@@ -1,98 +1,61 @@
-<!-- TEST-COMMIT-1 -->
 <!DOCTYPE html>
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KNOWLEDGE</title>
+  <title>BURDEN</title>
 
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-      height: 100vh;
-      background: #4A6FA5;
+      background: black;
       color: white;
-
-      /* subtle texture */
-      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 20px 20px;
-    }
-
-    /* INSET FRAME */
-    .frame {
-      position: fixed;
-      inset: 12px; /* this creates the inset margin */
-      box-sizing: border-box;
-      border: 3px solid white;
       display: flex;
       justify-content: center;
       align-items: center;
-
-      /* subtle entrance */
-      opacity: 0;
-      transform: scale(0.98);
-      animation: frameFade 1.2s ease forwards;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 320px;
+      height: 100vh;
       text-align: center;
     }
 
-    h1 {
-      letter-spacing: 4px;
-      margin-bottom: 20px;
+    .container {
+      max-width: 320px;
     }
 
     p {
       opacity: 0;
       animation: fadeIn 2s forwards;
-      margin-top: 20px;
+      margin: 12px 0;
     }
 
-    p:nth-child(2) { animation-delay: 1s; }
-    p:nth-child(3) { animation-delay: 3s; }
-    p:nth-child(4) { animation-delay: 5s; }
+    p:nth-child(1) { animation-delay: 0.5s; }
+    p:nth-child(2) { animation-delay: 2s; }
+    p:nth-child(3) { animation-delay: 3.5s; }
 
     a {
       display: inline-block;
-      margin-top: 40px;
+      margin-top: 30px;
       border: 1px solid white;
       padding: 10px 20px;
-      border-radius: 4px;
-      color: white;
       text-decoration: none;
+      color: white;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      animation-delay: 7s;
+      animation-delay: 5s;
     }
 
     @keyframes fadeIn {
       to { opacity: 1; }
     }
-
-    @keyframes frameFade {
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
   </style>
 </head>
 
 <body>
-  <div class="frame">
-    <div class="container">
-      <h1>KNOWLEDGE</h1>
+  <div class="container">
+    <p>You have chosen a burden.</p>
+    <p>It will stay with you.</p>
+    <p>You may continue.</p>
 
-      <p>You wanted to understand.</p>
-      <p>It does not stop once it begins.</p>
-      <p>You carry what you learn.</p>
-
-      <a href="feed.html?b=knowledge&s=0&m=early">continue</a>
-    </div>
+    <a href="knowledge-main.html?s=0">continue</a>
   </div>
 </body>
 </html>

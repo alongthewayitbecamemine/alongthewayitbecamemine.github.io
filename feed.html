@@ -4,68 +4,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>...</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      overflow: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+ <style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 
-    /* FULL SCREEN VIDEO WRAPPER */
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      height: 100vh;
-      background: black;
+  .video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    height: 100vh;
+    background: black;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 
-    /* CONTINUE BUTTON */
-    #next {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
+  /* TITLE (LOWERED) */
+  #label {
+    position: absolute;
+    top: 40px; /* was ~20 → now lower */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 12px;
+    opacity: 0.5;
+    letter-spacing: 2px;
+  }
 
-      border: 1px solid white;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-size: 14px;
+  /* BUTTON (SAFE ZONE FIX) */
+  #next {
+    position: absolute;
+    bottom: calc(60px + env(safe-area-inset-bottom)); 
+    /* ↑ this is the KEY fix */
 
-      background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(4px);
-    }
+    left: 50%;
+    transform: translateX(-50%);
 
-    /* OPTIONAL: remove label if you don't want it */
-    #label {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: white;
-      font-size: 12px;
-      opacity: 0.5;
-      letter-spacing: 2px;
-    }
-  </style>
+    border: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 14px;
+
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+  }
+</style>
 </head>
 
 <body>

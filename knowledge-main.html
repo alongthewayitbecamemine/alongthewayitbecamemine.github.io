@@ -1,3 +1,4 @@
+
 <!-- TEST-COMMIT-1 -->
 <!DOCTYPE html>
 <html>
@@ -38,12 +39,10 @@
       text-align: center;
     }
 
-    /* SAME SIZE AS BODY TEXT NOW */
+    /* FIXED: no fade, appears instantly */
     .intro {
       margin-bottom: 10px;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-      animation-delay: 0.5s;
+      opacity: 1;
     }
 
     h1 {
@@ -61,7 +60,6 @@
     p:nth-child(4) { animation-delay: 3s; }
     p:nth-child(5) { animation-delay: 4.5s; }
 
-    /* NEW: closing lines fade in */
     .closing {
       margin-top: 20px;
     }

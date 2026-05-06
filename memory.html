@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  color: white;
+}
+
+/* container */
+#container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* images */
+img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+/* text */
+#text {
+  position: absolute;
+  bottom: 12%;
+  width: 80%;
+  left: 10%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.4;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+/* start screen */
+#start {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#start button {
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+  <img id="img">
+  <div id="text"></div>
+
+  <div id="start">
+    <button onclick="start()">begin</button>
+  </div>
+
+</div>
+
+<script>
+
+const sequence = [
+
+  { text: "You found something that was not meant for everyone.", img: "" },
+
+  { text: "This is mine.", img: "images/memory1.jpg" },
+
+  { text: "This past Easter, my Aunt Carolyn passed away.", img: "images/memory2.jpg" },
+
+  { text: "It was sudden. It was peaceful.", img: "" },
+
+  { text: "That doesn’t make it hurt any less.", img: "images/memory3.jpg" },
+
+  { text: "She loved Mardi Gras.", img: "images/memory4.jpg" },
+
+  { text: "More than anything, she loved us.", img: "" },
+
+  { text: "She was my second mother.", img: "images/memory5.jpg" },
+
+  { text: "The plane ticket was bought. She was supposed to be here.", img: "" },
+
+  { text: "She was supposed to see this.", img: "images/memory6.jpg" },
+
+  { text: "It was supposed to be a surprise.", img: "" },
+
+  { text: "Purple. Green. Gold. Clay beads.", img: "images/memory7.jpg" },
+
+  { text: "She would have loved it.", img: "" },
+
+  { text: "It still hurts to look at it.", img: "" },
+
+  { text: "Knowing she will never see it.", img: "" },
+
+  { text: "This piece is for her.", img: "" },
+
+  { text: "Now you know what I have been carrying.", img: "" }
+
+];
+
+let i = 0;
+
+function start() {
+  document.getElementById("start").style.display = "none";
+  next();
+}
+
+function next() {
+  if (i >= sequence.length) return;
+
+  const step = sequence[i];
+  const img = document.getElementById("img");
+  const text = document.getElementById("text");
+
+  img.style.opacity = 0;
+  text.style.opacity = 0;
+
+  setTimeout(() => {
+    if (step.img) {
+      img.src = step.img;
+      img.style.opacity = 1;
+    } else {
+      img.style.opacity = 0;
+    }
+
+    text.innerText = step.text;
+    text.style.opacity = 1;
+  }, 800);
+
+  i++;
+  setTimeout(next, 5000);
+}
+
+</script>
+
+</body>
+</html>

@@ -12,14 +12,12 @@ body {
   color: white;
 }
 
-/* container */
 #container {
   position: fixed;
   width: 100%;
   height: 100%;
 }
 
-/* images */
 img {
   position: absolute;
   width: 100%;
@@ -29,7 +27,6 @@ img {
   transition: opacity 2s ease;
 }
 
-/* text */
 #text {
   position: absolute;
   bottom: 12%;
@@ -42,7 +39,6 @@ img {
   transition: opacity 2s ease;
 }
 
-/* start screen */
 #start {
   position: absolute;
   width: 100%;
@@ -50,7 +46,6 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
 #start button {
@@ -66,53 +61,55 @@ img {
 <body>
 
 <div id="container">
-
   <img id="img">
   <div id="text"></div>
 
   <div id="start">
     <button onclick="start()">begin</button>
   </div>
-
 </div>
 
 <script>
 
 const sequence = [
 
-  { text: "You found something that was not meant for everyone.", img: "" },
+  { text: "You found something that was not meant for everyone.", img: "", duration: 4000 },
 
-  { text: "This is mine.", img: "images/memory1.jpg" },
+  { text: "This piece is about burdenship, and this is mine.", img: "", duration: 4000 },
 
-  { text: "This past Easter, my Aunt Carolyn passed away.", img: "images/memory2.jpg" },
+  { text: "This past Easter, my Aunt Carolyn passed away.", img: "images/memory1.jpg", duration: 5000 },
 
-  { text: "It was sudden. It was peaceful.", img: "" },
+  { text: "It was sudden. It was peaceful.", img: null, duration: 4000 },
 
-  { text: "That doesn’t make it hurt any less.", img: "images/memory3.jpg" },
+  { text: "That doesn’t make it hurt any less.", img: null, duration: 4500 },
 
-  { text: "She loved Mardi Gras.", img: "images/memory4.jpg" },
+  { text: "She loved Mardi Gras.", img: "images/memory4.jpg", duration: 5000 },
 
-  { text: "More than anything, she loved us.", img: "" },
+  { text: "More than anything, she loved her family.", img: "images/memory7.jpg", duration: 6000 },
 
-  { text: "She was my second mother.", img: "images/memory5.jpg" },
+  { text: "She was my second mother.", img: null, duration: 4500 },
 
-  { text: "The plane ticket was bought. She was supposed to be here.", img: "" },
+  { text: "The plane ticket was bought. She was supposed to be here.", img: null, duration: 4500 },
 
-  { text: "She was supposed to see this.", img: "images/memory6.jpg" },
+  { text: "She was supposed to see this.", img: "images/memory6.jpg", duration: 6000 },
 
-  { text: "It was supposed to be a surprise.", img: "" },
+  { text: "It was supposed to be a surprise.", img: null, duration: 4000 },
 
-  { text: "Purple. Green. Gold. Clay beads.", img: "" },
+  { text: "Purple. Green. Gold. Clay beads.", img: null, duration: 4000 },
 
-  { text: "She would have loved it.", img: "" },
+  { text: "She always wanted me to make New Orleans art.", img: null, duration: 4500 },
 
-  { text: "It still hurts to look at it.", img: "" },
+  { text: "She would have loved this.", img: null, duration: 5000 },
 
-  { text: "Knowing she will never see it.", img: "" },
+  { text: "It still hurts to look at it.", img: null, duration: 4500 },
 
-  { text: "This piece is for her.", img: "" },
+  { text: "Knowing she will never see it.", img: "images/memory5.jpg", duration: 6000 },
 
-  { text: "Now you know what I have been carrying.", img: "" }
+  { text: "This piece is for her.", img: null, duration: 5000 },
+
+  { text: "Now you know what I have been carrying.", img: null, duration: 5000 },
+
+  { text: "Thank you for sharing this with me.", img: null, duration: 6000 }
 
 ];
 
@@ -124,29 +121,43 @@ function start() {
 }
 
 function next() {
-  if (i >= sequence.length) return;
+  if (i >= sequence.length) {
+    endFade();
+    return;
+  }
 
   const step = sequence[i];
   const img = document.getElementById("img");
   const text = document.getElementById("text");
 
-  img.style.opacity = 0;
   text.style.opacity = 0;
 
   setTimeout(() => {
-    if (step.img) {
+    // IMAGE LOGIC
+    if (step.img === "") {
+      img.style.opacity = 0;
+    } else if (step.img !== null) {
       img.src = step.img;
       img.style.opacity = 1;
-    } else {
-      img.style.opacity = 0;
     }
+    // if null → keep current image
 
     text.innerText = step.text;
     text.style.opacity = 1;
   }, 800);
 
-  i++;
-  setTimeout(next, 5000);
+  setTimeout(() => {
+    i++;
+    next();
+  }, step.duration);
+}
+
+function endFade() {
+  const img = document.getElementById("img");
+  const text = document.getElementById("text");
+
+  text.style.opacity = 0;
+  img.style.opacity = 0;
 }
 
 </script>
